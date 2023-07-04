@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
-import './card.scss';
+// import './card.scss';
 
 const Card = (props) => {
   const { picUrl, name, location, closes, price } = props;
@@ -8,7 +8,6 @@ const Card = (props) => {
   return (
     <div className='card'>
       <div className='detail-container'>
-        {' '}
         <div className='img-container'>
           <img src={picUrl} alt='restuarant' className='posted-img img' />
         </div>

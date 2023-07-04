@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./login.scss";
+// import "./login.scss";
 
 function Login() {
   //direct you anywhere as long as you have specified that path before
@@ -43,25 +43,25 @@ function Login() {
   };
 
   return (
-    <div className="login-background">
-      <form onSubmit={handleSubmit} className="login-form">
-        <p className="title">ME WANT FOOD</p>
+    <div className="flex justify-center items-center bg-amber-300 border border-solid border-white rounded-xl w-80 h-96">
+      <form onSubmit={handleSubmit} className="flex flex-col justify-between h-60 rounded-full">
+        <p className="border border-dashed border-black w-48 text-center text-3xl">ME WANT FOOD</p>
         <input
           ref={usernameRef}
-          className="login-input"
+          className="h-10 bg-slate-200 border border-solid border-black"
           name="username"
           type="text"
           placeholder="Username"
         />
         <input
           ref={passwordRef}
-          className="login-input"
+          className="h-10 bg-slate-200 border border-solid border-black"
           name="password"
           type="password"
           placeholder="Password"
         />
         <button>Login</button>
-        <a href="/signup">SIGN UP</a>
+        <a className="self-center" href="/signup">Sign Up</a>
       </form>
     </div>
   );

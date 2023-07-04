@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import './header.scss';
+// import './header.scss';
 import axios from 'axios';
 
 const Header = () => {

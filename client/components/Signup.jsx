@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./signup.scss";
+// import "./signup.scss";
 
 function Signup() {
   //direct you anywhere as long as you have specified that path before

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
-import './main.scss';
+// import './main.scss';
 import axios from 'axios';
 
 const Main = (props) => {
