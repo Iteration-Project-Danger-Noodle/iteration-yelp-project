@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-// import "./signup.scss";
 
 function Signup() {
   //direct you anywhere as long as you have specified that path before
@@ -17,15 +16,6 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // const formData = new FormData();
-
-    // const firstName = formData.get("firstname");
-    // const lastName = formData.get("lastname");
-    // const username = formData.get("username");
-    // const password = formData.get("password");
-    // const zipcode = formData.get("zipcode");
-
 
     const firstName = firstNameRef.current.value;
     const lastName = lastNameRef.current.value;
@@ -67,8 +57,8 @@ function Signup() {
   }
 
   return (
-    <div className="signup-background">
-      <svg onClick={goBack}
+    <div className="flex flex-col bg-white rounded-xl">
+      {/* <svg onClick={goBack}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
@@ -80,39 +70,39 @@ function Signup() {
           fill-rule="evenodd"
           d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
         />
-      </svg>
-      <form className="signup-form" onSubmit={handleSubmit}>
+      </svg> */}
+      <form className="flex flex-col h-96 w-96 rounded-xl justify-evenly" onSubmit={handleSubmit}>
         <input
           ref={firstNameRef}
-          className="signup-input"
+          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
           name="firstname"
           type="text"
           placeholder="Enter First Name Here"
         />
         <input
         ref={lastNameRef}
-          className="signup-input"
+          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
           name="lastname"
           type="text"
           placeholder="Enter Last Name Here"
         />
         <input
         ref={usernameRef}
-          className="signup-input"
+          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
           name="username"
           type="text"
           placeholder="Enter Username Here"
         />
         <input
         ref={passwordRef}
-          className="signup-input"
+          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
           name="password"
           type="password"
           placeholder="Enter Password Here"
         />
         <input
         ref={zipcodeRef}
-          className="signup-input"
+          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
           name="zipcode"
           type="text"
           placeholder="Enter Zip Code Here"
@@ -121,7 +111,7 @@ function Signup() {
           id="formButton"
           type="submit"
           value="Submit"
-          class="submit-button"
+          className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded-lg"
         />
       </form>
     </div>
