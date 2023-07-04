@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useLocation, Outlet } from 'react-router-dom';
 import axios from 'axios';
 
 const Navbar = () => {
@@ -8,6 +8,7 @@ const Navbar = () => {
     location: '',
   });
   const [name, setName] = useState(null)
+  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const Navbar = () => {
 
   return (
     <>
-      <main className='flex flex-col justify-between items-right p-4 rounded-xl fixed w-1/4'>
+      <main className='flex flex-col justify-between items-right p-4 rounded-xl w-1/4 fixed'>
         <div>
           <h3 className='m-0 text-6xl font-black tracking-wider uppercase text-right text-white'>{name ? name : 'Me' }</h3>
           <h3 className='m-0 text-6xl font-black tracking-wider uppercase text-right text-white'>Want</h3>
@@ -32,7 +33,7 @@ const Navbar = () => {
         </div>
         <form onSubmit={handleSubmit} className='flex flex-col items-end m-0'>
           <input
-            name='preference'
+            name='food'
             type='text'
             placeholder='How Hungry You Wanna Be?'
             className='w-60 h-8 p-4 my-4 block rounded-3xl bg-white border border-solid border-gray-200'
@@ -42,7 +43,7 @@ const Navbar = () => {
             }
           />
           <input
-            name='preference'
+            name='location'
             type='text'
             placeholder='Enter Location'
             className='w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200'
@@ -55,9 +56,13 @@ const Navbar = () => {
             Search
           </button>
         </form>
-        <div className=''>
-          <div className=''></div>
-        </div>
+        <Link to="/login" state={{ background: location }}>
+          Log In
+        </Link>
+        <Link to="/signup" state={{ background: location }}>
+          Sign Up
+        </Link>
+        <Outlet />
       </main>
     </>
   );

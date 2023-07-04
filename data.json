@@ -1,51 +1,49 @@
 {"businesses":
   [
     {
-    "id":"IcQlFv-9WlFG_RaeJ4QPhg",
-    "alias":"motorkat-takoma-park",
-    "name":"Motorkat",
-    "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/_JK0dJt0xctMpbri9AmoQA/o.jpg",
-    "is_closed":false,
-    "url":"https://www.yelp.com/biz/motorkat-takoma-park?adjust_creative=1_Ps9oQqw2V-ZJmySZL3iw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=1_Ps9oQqw2V-ZJmySZL3iw",
-    "review_count":6,
-    "categories":[
-      {
-        "alias":"seafood",
-        "title":"Seafood"
+      "id":"IcQlFv-9WlFG_RaeJ4QPhg",
+      "alias":"motorkat-takoma-park",
+      "name":"Motorkat",
+      "image_url":"https://s3-media2.fl.yelpcdn.com/bphoto/_JK0dJt0xctMpbri9AmoQA/o.jpg",
+      "is_closed":false,
+      "url":"https://www.yelp.com/biz/motorkat-takoma-park?adjust_creative=1_Ps9oQqw2V-ZJmySZL3iw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=1_Ps9oQqw2V-ZJmySZL3iw",
+      "review_count":6,
+      "categories":[
+        {
+          "alias":"seafood",
+          "title":"Seafood"
+        },
+        {
+          "alias":"newamerican",
+          "title":"American (New)"
+        },
+        {
+          "alias":"cocktailbars",
+          "title":"Cocktail Bars"
+        }
+      ],
+      "rating":5,
+      "coordinates":{
+        "latitude":38.974622,
+        "longitude":-77.011905
       },
-      {
-        "alias":"newamerican",
-        "title":"American (New)"
+      "transactions":[],
+      "location":{
+        "address1":"6939 Laurel Ave",
+        "address2":"",
+        "address3":null,
+        "city":"Takoma Park",
+        "zip_code":"20912",
+        "country":"US",
+        "state":"MD",
+        "display_address":[
+          "6939 Laurel Ave",
+          "Takoma Park, MD 20912"
+        ]
       },
-      {
-        "alias":"cocktailbars",
-        "title":"Cocktail Bars"
-      }
-    ],
-    "rating":5,
-    "coordinates":{
-      "latitude":38.974622,
-      "longitude":-77.011905
-    },
-    "transactions":[
-
-    ],
-    "location":{
-    "address1":"6939 Laurel Ave",
-    "address2":"",
-    "address3":null,
-    "city":"Takoma Park",
-    "zip_code":"20912",
-    "country":"US",
-    "state":"MD",
-    "display_address":[
-      "6939 Laurel Ave",
-      "Takoma Park, MD 20912"
-    ]
-    },
-    "phone":"+12402230629",
-    "display_phone":"(240) 223-0629",
-    "distance":1151.3433511096723
+      "phone":"+12402230629",
+      "display_phone":"(240) 223-0629",
+      "distance":1151.3433511096723
     },
     {
     "id":"kClUGhspIXDm6ncyDciHzA",

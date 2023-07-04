@@ -24,7 +24,7 @@ const Main = (props) => {
   }, []);
 
   return (
-    <article className='flex flex-wrap gap-1 p-0 m-0 mt-1 rounded-xl w-4/5'>
+    <article className='flex flex-wrap gap-1 p-0 m-0 mt-1 rounded-xl w-auto'>
       {fetchedData.map((item) => (
         <Card
           key={item.id}

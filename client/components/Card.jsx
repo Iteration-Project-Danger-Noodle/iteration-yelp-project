@@ -14,7 +14,7 @@ const Card = (props) => {
             alt='restuarant'
           />
         </div>
-        <div className='w-80 h-80 flex flex-col text-right text-transparent hover:text-slate-100 hover:bg-slate-800 hover:bg-opacity-70 p-6 absolute'>
+        <div className='w-80 h-80 flex flex-col text-right text-transparent hover:text-white hover:bg-slate-800 hover:bg-opacity-70 p-6 absolute'>
           <h5 className='m-0 text-2xl font-bold'>{name}</h5>
           <p className='m-0 text-sm'>{location[0]} </p>
           <p className='m-0 text-xs'>{location[1]} </p>

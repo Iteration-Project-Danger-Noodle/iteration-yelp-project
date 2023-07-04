@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
@@ -50,70 +50,55 @@ function Signup() {
       
 
   };
-  
-
-  const goBack = () =>{
-    navigate('/');
-  }
 
   return (
-    <div className="flex flex-col bg-white rounded-xl">
-      {/* <svg onClick={goBack}
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-chevron-left"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-        />
-      </svg> */}
-      <form className="flex flex-col h-96 w-96 rounded-xl justify-evenly" onSubmit={handleSubmit}>
-        <input
-          ref={firstNameRef}
-          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
-          name="firstname"
-          type="text"
-          placeholder="Enter First Name Here"
-        />
-        <input
-        ref={lastNameRef}
-          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
-          name="lastname"
-          type="text"
-          placeholder="Enter Last Name Here"
-        />
-        <input
-        ref={usernameRef}
-          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
-          name="username"
-          type="text"
-          placeholder="Enter Username Here"
-        />
-        <input
-        ref={passwordRef}
-          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
-          name="password"
-          type="password"
-          placeholder="Enter Password Here"
-        />
-        <input
-        ref={zipcodeRef}
-          className="h-10 w-52 self-center bg-blue-50 border border-solid border-black rounded-xl text-center"
-          name="zipcode"
-          type="text"
-          placeholder="Enter Zip Code Here"
-        />
-        <input
-          id="formButton"
-          type="submit"
-          value="Submit"
-          className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded-lg"
-        />
-      </form>
+    <div className="fixed flex justify-center items-center top-0 h-screen w-screen bg-opacity-50 bg-slate-950">
+      <div className="flex justify-center items-center bg-black bg-opacity-60 border border-solid border-white rounded-xl w-auto h-auto p-8">
+        <form onSubmit={handleSubmit} className="flex flex-col justify-between items-center h-auto rounded-full">
+          <input
+            ref={firstNameRef}
+            className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
+            name="firstname"
+            type="text"
+            placeholder="First Name"
+          />
+          <input
+            ref={lastNameRef}
+            className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
+            name="lastname"
+            type="text"
+            placeholder="Last Name"
+          />
+          <input
+            ref={usernameRef}
+            className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
+            name="username"
+            type="text"
+            placeholder="Username"
+          />
+          <input
+            ref={passwordRef}
+            className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
+          <input
+            ref={zipcodeRef}
+            className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
+            name="zipcode"
+            type="text"
+            placeholder="Zip Code"
+          />
+          <input
+            id="formButton"
+            type="submit"
+            value="Submit"
+            className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded cursor-pointer"
+          />
+        <button className="cursor-pointer text-white" type="button" onClick={() => navigate(-1)}>Close</button>
+        </form>
+      </div>
     </div>
   );
 }
