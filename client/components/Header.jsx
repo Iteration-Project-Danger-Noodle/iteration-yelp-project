@@ -23,7 +23,7 @@ const Header = ({ fetchedData, setFetchedData }) => {
       })
       .catch((error) => console.log(error));
   };
-
+  
   return (
     <>
       <main className='header'>
