@@ -2,28 +2,35 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const axios = require('axios');
 
+//Import middleware.
 const userController = require('./controllers/userController');
 
 // add route import
 // add model import
 
-const dbUrl =
-  'mongodb+srv://sebastiansarm:1234@cluster0.at2e2ez.mongodb.net/?retryWrites=true&w=majority';
+//CONVERTING MONGODB TO SQL
+// const PG_URI = 'postgres://vtkfwwwy:nzEE9wkwL58PA2bW1g_Ywv2DRjIsoqe_@stampy.db.elephantsql.com/vtkfwwwy';
 
-mongoose
-  .connect(dbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: 'MeWantFood',
-  })
-  .then(() => console.log('Connected to DB'))
-  .catch((err) => console.log(err));
+
+
+//MONGODB ON THE NEXT 11 LINES
+// const dbUrl =
+//   'mongodb+srv://sebastiansarm:1234@cluster0.at2e2ez.mongodb.net/?retryWrites=true&w=majority';
+
+// mongoose
+//   .connect(dbUrl, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     dbName: 'MeWantFood',
+//   })
+//   .then(() => console.log('Connected to DB'))
+//   .catch((err) => console.log(err));
 
 // handle parsing request body
-app.use(cors());
+app.use(cors()); //Handles cors errors. 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -49,16 +56,20 @@ app.post('/signup', userController.createUser, (req, res) => {
   return res.status(200).json(res.locals.newUser);
 });
 
-app.post('/login', userController.getUser, (req, res) => {
-  // upon successful sign up
-  return res.status(200).json(res.locals.user);
-});
+// app.post('/login', userController.getUser, (req, res) => {
+//   // upon successful sign up
+//   return res.status(200).json(res.locals.user);
+// });
 // app.use('/dashboard', routenamevar);
 
-// Serve index.html for all routes
+// // Serve index.html for all routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
+
+// app.get('*', (req, res) => {
+//   return res.status(404).send('Page Not Found!');
+// });
 
 /**
  * global express error handler
