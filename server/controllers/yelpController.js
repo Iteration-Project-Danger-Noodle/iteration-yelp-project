@@ -77,6 +77,10 @@ yelpController.searchData = (req, res, next) => {
     });
 
   console.log('entered search controller');
+
+  //filter the data in this controller
+    //make sure to use different request query parameters. 
+
   console.log(req.body);
   console.log(req.body);
 };
