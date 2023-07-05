@@ -4,8 +4,6 @@ import axios from 'axios';
 import dummyData from '../../data.json'
 
 const Main = (props) => {
-  // const {zipCode} = props
-
   const [fetchedData, setFetchedData] = useState([]);
 
   // useEffect(() => {

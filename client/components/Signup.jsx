@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function Signup({setUser}) {
   //direct you anywhere as long as you have specified that path before
   const navigate = useNavigate();
   const firstName = useRef('');
@@ -10,10 +10,10 @@ function Signup() {
   const password = useRef('');
   const zipcode = useRef('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3000/signup", {
+    const res = await fetch("http://localhost:3000/signup", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -27,16 +27,11 @@ function Signup() {
         zipcode: zipcode.current,
       }),
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log("this is data:", data);
-        navigate('/');
-      })
-      .catch(error =>{
-        console.error('invalid setup');
-      });
+    if (res.ok) {
+      const user = await res.json();
+      setUser(user);
+      navigate(-1);
+    }
   };
 
   return (

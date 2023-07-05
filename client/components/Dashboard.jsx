@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from './Navbar';
 import Main from './Main';
 
-function Dashboard() {
+function Dashboard({username, setUser}) {
   return (
     <div className='flex'>
-        <Navbar />
+      <Navbar username={username} setUser={setUser} />
         <Main />
     </div>
   );

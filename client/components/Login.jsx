@@ -1,15 +1,15 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({setUser}) {
   //direct you anywhere as long as you have specified that path before
   const navigate = useNavigate();
   const username = useRef('');
   const password = useRef('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/login", {
+    const res = await fetch("http://localhost:3000/login", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -20,20 +20,14 @@ function Login() {
         password: password.current,
       }),
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        if (data.error) {
-          alert("Wrong Username/Password")
-        } else {
-          navigate("/");
-        }
-      })
-      .catch((err) => {
-        console.log("Need to doublecheck username/password");
-      });
-  };
+    if (res.ok) {
+      const user = await res.json();
+      setUser(user);
+      navigate(-1)
+    }
+  }
+
+
 
   return (
     <div className="fixed flex justify-center items-center top-0 h-screen w-screen bg-opacity-50 bg-slate-950" >
