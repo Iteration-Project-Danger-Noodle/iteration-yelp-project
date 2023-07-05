@@ -8,7 +8,7 @@ function App() {
   const location = useLocation();
   const background = location.state && location.state.background;
   const [user, setUser] = useState({});
-  console.log(user.username)
+
   return (  
     <>
       <Routes location={background || location}>
