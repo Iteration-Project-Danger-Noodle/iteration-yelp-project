@@ -3,8 +3,8 @@ import Card from './Card';
 import axios from 'axios';
 import dummyData from '../../data.json'
 
-const Main = (props) => {
-  const [fetchedData, setFetchedData] = useState([]);
+const Main = ({fetchedData, setFetchedData}) => {
+  // const [fetchedData, setFetchedData] = useState([]);
 
   // useEffect(() => {
   //   axios
@@ -17,9 +17,9 @@ const Main = (props) => {
   // }, []);
   
   //data from file for dev purposes only
-  useEffect(() => {
-    setFetchedData(dummyData.businesses)
-  }, []);
+  // useEffect(() => {
+  //   setFetchedData(dummyData.businesses)
+  // }, []);
 
   return (
     <article className='flex flex-wrap gap-1 p-0 m-0 mt-1 ml-72 w-auto rounded-xl'>

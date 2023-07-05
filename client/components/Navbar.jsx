@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import axios from 'axios';
 
-const Navbar = ({username, setUser}) => {
+const Navbar = ({username, setUser, fetchedData, setFetchedData}) => {
   const [sendPreference, setSendPreference] = useState({
     term: '',
     location: '',
   });
   const location = useLocation();
 
-  const handleSubmit = (e) => {
+  // new search fetch
+    const handleSubmit = (e) => {
     e.preventDefault();
     console.log('clicked');
     console.log(sendPreference);
     axios
-      .post('/yelp/search', sendPreference)
+      .post('http://localhost:3000/yelp/search', sendPreference)
       .then((response) => {
         console.log('data sent to server');
         console.log(response.data);
+        const rawData = response.data.businesses;
+        setFetchedData(rawData);
       })
       .catch((error) => console.log(error));
   };
