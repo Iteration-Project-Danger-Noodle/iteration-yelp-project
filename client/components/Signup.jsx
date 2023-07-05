@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Signup({setUser}) {
-  //direct you anywhere as long as you have specified that path before
   const navigate = useNavigate();
   const firstName = useRef('');
   const lastName = useRef('');
@@ -78,7 +77,7 @@ function Signup({setUser}) {
             type="text"
             placeholder="Zip Code"
           />
-          <button className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded cursor-pointer">Login</button>
+          <button className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded cursor-pointer">Sign Up</button>
           <button className="cursor-pointer text-white" type="button" onClick={() => navigate(-1)}>Close</button>
         </form>
       </div>

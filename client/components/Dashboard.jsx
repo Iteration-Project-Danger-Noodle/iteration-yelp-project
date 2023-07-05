@@ -1,11 +1,16 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Main from './Main';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import dummyData from '../../data.json'
 
 
 function Dashboard({ username, setUser }) {
-    const [fetchedData, setFetchedData] = useState([]);
+  const [fetchedData, setFetchedData] = useState([]);
+
+  useEffect(() => {
+    setFetchedData(dummyData.businesses)
+  }, []);
 
   return (
     <div className='flex'>

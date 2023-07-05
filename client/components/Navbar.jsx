@@ -12,13 +12,9 @@ const Navbar = ({username, setUser, fetchedData, setFetchedData}) => {
   // new search fetch
     const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('clicked');
-    console.log(sendPreference);
     axios
       .post('http://localhost:3000/yelp/search', sendPreference)
       .then((response) => {
-        console.log('data sent to server');
-        console.log(response.data);
         const rawData = response.data.businesses;
         setFetchedData(rawData);
       })

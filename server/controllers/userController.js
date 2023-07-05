@@ -12,24 +12,13 @@ const UserController = {
       const { first_name, last_name, password, username, zipcode } = req.body;
       const hashed = await bcrypt.hash(password, 12);
       const query =
-        'INSERT INTO users (first_name, last_name, username, password, zipcode) VALUES ($1, $2, $3, $4, $5)';
+        'INSERT INTO users (first_name, last_name, username, password, zipcode) VALUES ($1, $2, $3, $4, $5) RETURNING *';
       const values = [first_name, last_name, username, hashed, zipcode];
-      await db.query(query, values);
+      const newUser = await db.query(query, values);
 
       // log the sign up
-      console.log('New user signup:', {
-        first_name,
-        last_name,
-        username,
-        zipcode,
-      });
-      res.locals.newUser = {
-        first_name,
-        last_name,
-        password,
-        username,
-        zipcode,
-      };
+      console.log('New user signup:', newUser.rows[0]);
+      res.locals.newUser = newUser.rows[0];
       return next();
     } catch (error) {
       console.error('Error during user signup:', error);
