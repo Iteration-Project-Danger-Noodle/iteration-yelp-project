@@ -20,7 +20,7 @@ const Card = ({ picUrl, name, location, closes, price }) => {
           <p className='mt-auto m-0'>
             {price && price}
           </p>
-          <p className='m-0'>{closes ? 'Open' : 'Closed'}</p>
+          <p className='m-0'>{closes ? 'Closed' : 'Open'}</p>
         </div>
       </div>
     </div>

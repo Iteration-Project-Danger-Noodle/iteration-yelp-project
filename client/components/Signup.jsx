@@ -77,7 +77,7 @@ function Signup({setUser}) {
             type="text"
             placeholder="Zip Code"
           />
-          <button className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded cursor-pointer">Login</button>
+          <button className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded cursor-pointer">Sign Up</button>
           <button className="cursor-pointer text-white" type="button" onClick={() => navigate(-1)}>Close</button>
         </form>
       </div>
