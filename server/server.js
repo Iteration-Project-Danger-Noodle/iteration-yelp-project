@@ -5,13 +5,14 @@ const cors = require('cors');
 // const mongoose = require('mongoose');
 const axios = require('axios');
 
+//Import middleware.
 const userController = require('./controllers/userController');
 
 // add route import
 // add model import
 
 // handle parsing request body
-app.use(cors());
+app.use(cors()); //Handles cors errors. 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -42,10 +43,14 @@ app.post('/signup', userController.createUser, (req, res) => {
 // });
 // app.use('/dashboard', routenamevar);
 
-// Serve index.html for all routes
+// // Serve index.html for all routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
+
+// app.get('*', (req, res) => {
+//   return res.status(404).send('Page Not Found!');
+// });
 
 /**
  * global express error handler
