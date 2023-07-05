@@ -1,22 +1,23 @@
 import React from 'react';
-import Header from './Header';
-import Main from './main';
-import './dashboard.scss';
+import Navbar from './Navbar';
+import Main from './Main';
 import { useState } from 'react';
 
-function Dashboard() {
 
-  const [fetchedData, setFetchedData] = useState([]);
+function Dashboard({ username, setUser }) {
+    const [fetchedData, setFetchedData] = useState([]);
 
   return (
-    <div className='dashboard'>
-      <Header 
-      fetchedData={fetchedData}
-      setFetchedData={setFetchedData}
+    <div className='flex'>
+      <Navbar
+        username={username}
+        setUser={setUser}
+        fetchedData={fetchedData}
+        setFetchedData={setFetchedData}        
       />
-      <Main 
-      fetchedData={fetchedData}
-      setFetchedData={setFetchedData}
+      <Main
+        fetchedData={fetchedData}
+        setFetchedData={setFetchedData}
       />
     </div>
   );
