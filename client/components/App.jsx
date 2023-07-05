@@ -10,7 +10,7 @@ function App() {
   const [user, setUser] = useState({});
 
   return (  
-    <>
+    <div data-testid="app-element">
       <Routes location={background || location}>
         <Route exact path='/' element={<Dashboard username={user.username} setUser={setUser} />}>
           <Route exact path='signup' element={!user.username && <Signup />}></Route>
@@ -23,7 +23,7 @@ function App() {
           <Route path="login" element={!user.username && <Login setUser={setUser} />} />
         </Routes>
       )}
-    </>
+    </div>
   );
 }
 

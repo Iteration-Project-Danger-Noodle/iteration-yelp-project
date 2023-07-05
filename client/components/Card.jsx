@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
 
 const Card = ({ picUrl, name, location, closes, price }) => {
+  console.log(closes)
 
   return (
     <div className='w-80 h-80 shadow-md' >

@@ -1,11 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import App from '../App.jsx';
+import App from '../components/App.jsx';
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
+import {BrowserRouter, MemoryRouter, Route, Routes} from 'react-router-dom'
+
 
 describe('App tests', () => {
-    it('should contains the heading 1', () => {
-    render(<App />);
-        const heading = screen.getByText(/Hello world! I am using React/i);
-        expect(heading).toBeInTheDocument()
+    it('render the App Component', () => {
+      const { getByTestId } = render(<App />, {wrapper: BrowserRouter});
+      const appComponent = getByTestId('app-element')
+      expect(appComponent).toBeInTheDocument()
     });
 });
