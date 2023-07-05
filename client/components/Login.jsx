@@ -4,26 +4,20 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   //direct you anywhere as long as you have specified that path before
   const navigate = useNavigate();
-
-  const URL = "http://localhost:3000/login";
-
-  const usernameRef = useRef(null);
-  const passwordRef = useRef(null);
+  const username = useRef('');
+  const password = useRef('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const username = usernameRef.current.value;
-    const password = passwordRef.current.value;
-
-    fetch(URL, {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
-        password: password,
+        username: username.current,
+        password: password.current,
       }),
     })
       .then((res) => {
@@ -47,14 +41,16 @@ function Login() {
         <form onSubmit={handleSubmit} className="flex flex-col justify-between items-center h-60 rounded-full">
         <p className="w-30 text-right font-black text-4xl text-white">ME WANT FOOD</p>
           <input
-            ref={usernameRef}
+            ref={username}
+            onChange={(e) => username.current = e.target.value}
             className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
             name="username"
             type="text"
             placeholder="Username"
           />
           <input
-            ref={passwordRef}
+            ref={password}
+            onChange={(e) => password.current = e.target.value}
             className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
             name="password"
             type="password"

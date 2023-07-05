@@ -4,13 +4,9 @@ import Main from './Main';
 
 function Dashboard() {
   return (
-    <div className='flex sm:flex-col'>
-      <div className='sticky left-auto'>
+    <div className='flex'>
         <Navbar />
-      </div>
-      <div className='absolute inset-x-1/4 w-3/4'>
         <Main />
-      </div>
     </div>
   );
 }

@@ -24,8 +24,16 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <main className='flex flex-col justify-between items-right p-4 rounded-xl w-1/4 fixed'>
+    <div className='fixed h-screen'>
+      <div className='flex justify-end gap-4 p-4 rounded-xl w-72'>
+        <Link to="/signup" state={{ background: location }} className='flex items-center justify-center w-24 h-8 my-2 cursor-pointer text-white bg-transparent border border-orange-600 rounded tracking-wide capitalize hover:bg-slate-900 hover:bg-opacity-50'>
+          Sign Up
+        </Link>
+        <Link to="/login" state={{ background: location }} className='flex items-center justify-center w-24 h-8 my-2 cursor-pointer text-white bg-transparent border border-orange-600 rounded tracking-wide capitalize hover:bg-slate-900 hover:bg-opacity-50'>
+          Log In
+        </Link>
+      </div>
+      <main className='flex flex-col justify-center items-right p-4 rounded-xl h-[80vh] w-72'>
         <div>
           <h3 className='m-0 text-6xl font-black tracking-wider uppercase text-right text-white'>{name ? name : 'Me' }</h3>
           <h3 className='m-0 text-6xl font-black tracking-wider uppercase text-right text-white'>Want</h3>
@@ -56,15 +64,9 @@ const Navbar = () => {
             Search
           </button>
         </form>
-        <Link to="/login" state={{ background: location }}>
-          Log In
-        </Link>
-        <Link to="/signup" state={{ background: location }}>
-          Sign Up
-        </Link>
         <Outlet />
       </main>
-    </>
+    </div>
   );
 };
 
