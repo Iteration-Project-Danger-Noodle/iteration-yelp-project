@@ -3,20 +3,20 @@ import Card from './Card';
 import './main.scss';
 import axios from 'axios';
 
-const Main = (props) => {
+const Main = ({ fetchedData, setFetchedData }) => {
   // const {zipCode} = props
 
-  const [fetchedData, setFetchedData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:3000/yelp')
-      .then((response) => {
-        const rawData = response.data.businesses;
-        setFetchedData(rawData);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:3000/yelp')
+  //     .then((response) => {
+  //       console.log('got initial businesses ');
+  //       console.log(response.data);
+  //       const rawData = response.data.businesses;
+  //       setFetchedData(rawData);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <article className='main'>

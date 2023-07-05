@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import './header.scss';
 import axios from 'axios';
 
-const Header = () => {
+const Header = ({ fetchedData, setFetchedData }) => {
   const [sendPreference, setSendPreference] = useState({
     term: '',
     location: '',
@@ -14,10 +14,12 @@ const Header = () => {
     console.log('clicked');
     console.log(sendPreference);
     axios
-      .post('/yelp/search', sendPreference)
+      .post('http://localhost:3000/yelp/search', sendPreference)
       .then((response) => {
         console.log('data sent to server');
         console.log(response.data);
+        const rawData = response.data.businesses;
+        setFetchedData(rawData);
       })
       .catch((error) => console.log(error));
   };
