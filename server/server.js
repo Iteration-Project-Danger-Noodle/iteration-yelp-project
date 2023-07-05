@@ -11,29 +11,10 @@ const userController = require('./controllers/userController');
 // add route import
 // add model import
 
-//CONVERTING MONGODB TO SQL
-// const PG_URI = 'postgres://vtkfwwwy:nzEE9wkwL58PA2bW1g_Ywv2DRjIsoqe_@stampy.db.elephantsql.com/vtkfwwwy';
-
-
-
-//MONGODB ON THE NEXT 11 LINES
-// const dbUrl =
-//   'mongodb+srv://sebastiansarm:1234@cluster0.at2e2ez.mongodb.net/?retryWrites=true&w=majority';
-
-// mongoose
-//   .connect(dbUrl, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     dbName: 'MeWantFood',
-//   })
-//   .then(() => console.log('Connected to DB'))
-//   .catch((err) => console.log(err));
-
 // handle parsing request body
 app.use(cors()); //Handles cors errors. 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 // allows us to store the cookie on our backend
 // app.use(cookieParser());

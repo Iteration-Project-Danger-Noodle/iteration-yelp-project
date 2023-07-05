@@ -1,45 +1,19 @@
 const { Pool } = require('pg');
 
-require ('dotenv').config();
+const PG_URI =
+  'postgres://aqmyyuyi:HlhBwLIIZNfNbcZ_1LUmmCuuexHzhJT1@stampy.db.elephantsql.com/aqmyyuyi';
 
+// create a new pool here using the connection string above
 const pool = new Pool({
-  connectionString: process.env.PG_URI,
+  connectionString: PG_URI,
 });
 
+// We export an object that contains a property called query,
+// which is a function that returns the invocation of pool.query() after logging the query
+// This will be required in the controllers to be the access point to the database
 module.exports = {
   query: (text, params, callback) => {
     console.log('executed query', text);
-    return pool.query(text, params, callback)
-  }
-}
-
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
-
-// // set a schema for the 'users' collectionx
-// const userSchema = new Schema({
-//   first_name: {
-//     type: String,
-//     required: true,
-//   },
-//   last_name: {
-//     type: String,
-//     required: true,
-//   },
-//   password: {
-//     type: String,
-//     required: true,
-//   },
-//   username: {
-//     type: String,
-//     required: true,
-//   },
-//   zipcode: {
-//     type: Number,
-//     required: true,
-//   },
-// });
-
-// const User = mongoose.model('User', userSchema);
-
-// module.exports = User;
+    return pool.query(text, params, callback);
+  },
+};
