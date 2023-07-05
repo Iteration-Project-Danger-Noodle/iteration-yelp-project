@@ -37,20 +37,20 @@ app.post('/signup', userController.createUser, (req, res) => {
   return res.status(200).json(res.locals.newUser);
 });
 
-// app.post('/login', userController.getUser, (req, res) => {
-//   // upon successful sign up
-//   return res.status(200).json(res.locals.user);
-// });
-// app.use('/dashboard', routenamevar);
+app.post('/login', userController.userLogin, (req, res) => {
+  // upon successful sign up
+  return res.status(200).json(res.locals.user);
+});
+
 
 // // Serve index.html for all routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 });
 
-// app.get('*', (req, res) => {
-//   return res.status(404).send('Page Not Found!');
-// });
+app.get('*', (req, res) => {
+  return res.status(404).send('Page Not Found!');
+});
 
 /**
  * global express error handler
