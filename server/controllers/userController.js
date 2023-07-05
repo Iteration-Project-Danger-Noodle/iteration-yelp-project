@@ -47,13 +47,21 @@ const UserController = {
       console.log('body: ', req.body);
       const { username, password } = req.body;
       const query = 
-        `SELECT password FROM users WHERE username = '${username}'`; 
+        `SELECT * FROM users WHERE username = '${username}'`; 
       const data = await db.query(query);
-      console.log(data.rows[0].password);
+      // console.log('data', data);
+      res.locals.data = data.rows[0];
       const hashedPass = data.rows[0].password;
       const passOk = await bcrypt.compare(password, hashedPass);
-      console.log(passOk);
+      // console.log(passOk);
       if (passOk) return next();
+      else{
+        return next({
+          log: 'Failed credentials',
+          status: 400,
+          message: { err: 'Failed matching user credentials' },
+        })
+      }
     }
     catch(error){
       console.error('Error during user login:', error);

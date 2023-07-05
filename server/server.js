@@ -39,7 +39,7 @@ app.post('/signup', userController.createUser, (req, res) => {
 
 app.post('/login', userController.userLogin, (req, res) => {
   // upon successful sign up
-  return res.status(200).json(res.locals.user);
+  return res.status(200).json(res.locals.data);
 });
 
 
