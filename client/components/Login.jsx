@@ -20,14 +20,13 @@ function Login({setUser}) {
         password: password.current,
       }),
     })
+    
     if (res.ok) {
       const user = await res.json();
       setUser(user);
       navigate(-1)
     }
   }
-
-
 
   return (
     <div className="fixed flex justify-center items-center top-0 h-screen w-screen bg-opacity-50 bg-slate-950" >

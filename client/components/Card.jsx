@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 
-const Card = (props) => {
-  const { picUrl, name, location, closes, price } = props;
+const Card = ({ picUrl, name, location, closes, price }) => {
 
   return (
     <div className='w-80 h-80 shadow-md' >

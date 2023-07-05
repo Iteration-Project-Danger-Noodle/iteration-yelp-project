@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Signup({setUser}) {
-  //direct you anywhere as long as you have specified that path before
   const navigate = useNavigate();
   const firstName = useRef('');
   const lastName = useRef('');
