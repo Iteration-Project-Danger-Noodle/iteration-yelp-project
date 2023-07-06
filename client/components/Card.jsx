@@ -7,7 +7,6 @@ const Card = ({ picUrl, name, location, closes, price }) => {
     <div data-testid="card-element" className='w-80 h-80 shadow-md' >
       <div>
         <div className='w-80 h-80 mb-2 flex absolute'>
-
           <img
             className='w-full h-auto object-cover block'
             src={picUrl}
