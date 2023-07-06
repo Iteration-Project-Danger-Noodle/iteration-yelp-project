@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login({setUser}) {
+function Login({ setUser }) {
   //direct you anywhere as long as you have specified that path before
   const navigate = useNavigate();
   const username = useRef('');
   const password = useRef('');
+
+ 
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,11 +22,14 @@ function Login({setUser}) {
         username: username.current,
         password: password.current,
       }),
+      credentials: 'include',
     })
     
     if (res.ok) {
       const user = await res.json();
+      // localStorage.setItem("zipcode", user.zipcode)
       setUser(user);
+      
       navigate(-1)
     }
   }

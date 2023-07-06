@@ -4,20 +4,23 @@ const path = require('path');
 const cors = require('cors');
 // const mongoose = require('mongoose');
 const axios = require('axios');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser')
 
 //Import middleware.
 const userController = require('./controllers/userController');
+
 
 // add route import
 // add model import
 
 // handle parsing request body
-app.use(cors()); //Handles cors errors. 
+app.use(cors({credentials:true, origin: 'http://localhost:8080'})); //Handles cors errors. 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // allows us to store the cookie on our backend
-// app.use(cookieParser());
+app.use(cookieParser());
 
 // statically serve everything in the build folder on the route '/build'
 app.use(express.static(path.join(__dirname, '../build')));
@@ -39,6 +42,7 @@ app.post('/signup', userController.createUser, (req, res) => {
 
 app.post('/login', userController.userLogin, (req, res) => {
   // upon successful sign up
+  console.log('in final callback');
   return res.status(200).json(res.locals.data);
 });
 

@@ -12,7 +12,7 @@ function App() {
   return (  
     <>
       <Routes location={background || location}>
-        <Route exact path='/' element={<Dashboard username={user.username} setUser={setUser} />}>
+        <Route exact path='/' element={<Dashboard username={user.username} setUser={setUser} zipcode={user.zipcode} user={user}/>}>
           <Route exact path='signup' element={!user.username && <Signup />}></Route>
           <Route exact path='login' element={!user.username && <Login />}></Route>
         </Route>

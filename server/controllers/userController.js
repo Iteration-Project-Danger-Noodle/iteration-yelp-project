@@ -1,5 +1,6 @@
 const db = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const UserController = {
   // Create a new user in the Database
@@ -31,6 +32,8 @@ const UserController = {
   },  
   // get method for fetching user based off of username
   async userLogin(req, res, next) {
+    const secret = 'sifulisthiccaf';
+
     try {
       console.log('------entering userLogin controller----');
       console.log('body: ', req.body);
@@ -43,7 +46,20 @@ const UserController = {
       const hashedPass = data.rows[0].password;
       const passOk = await bcrypt.compare(password, hashedPass);
       // console.log(passOk);
-      if (passOk) return next();
+      if (passOk) {
+        const token = await jwt.sign({userID: data.rows[0].id}, secret, {expiresIn: '30m'}, (err, token ) => {
+          console.log(token);
+          res.cookie('token', token, 
+          {
+            httpOnly: true,
+            maxAge: 1800000,
+          }
+          )
+        });
+        // send the cookie with the jwt token
+        
+        return next();
+      }
       else{
         return next({
           log: 'Failed credentials',
@@ -61,6 +77,7 @@ const UserController = {
       });
     }
   }
+
 };
 
 
