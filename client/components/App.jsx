@@ -9,8 +9,8 @@ function App() {
   const background = location.state && location.state.background;
   const [user, setUser] = useState({});
 
-  return (
-    <>
+  return (  
+    <div data-testid="app-element">
       <Routes location={background || location}>
         <Route
           exact
@@ -47,7 +47,7 @@ function App() {
           />
         </Routes>
       )}
-    </>
+    </div>
   );
 }
 

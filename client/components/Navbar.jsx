@@ -22,7 +22,7 @@ const Navbar = ({username, setUser, fetchedData, setFetchedData}) => {
   };
 
   return (
-    <div className='fixed h-screen'>
+    <div data-testid="nav-element" className='fixed h-screen'>
       {!username ? <div className='flex justify-end gap-4 p-4 rounded-xl w-72'>
         <Link to="/signup" state={{ background: location }} className='flex items-center justify-center w-24 h-8 my-2 cursor-pointer text-white bg-transparent border border-orange-600 rounded tracking-wide capitalize hover:bg-slate-900 hover:bg-opacity-50'>
           Sign Up
@@ -41,7 +41,9 @@ const Navbar = ({username, setUser, fetchedData, setFetchedData}) => {
           <h3 className='m-0 text-6xl font-black tracking-wider uppercase text-right text-white'>Food</h3>
         </div>
         <form onSubmit={handleSubmit} className='flex flex-col items-end m-0'>
+          <label htmlFor="navbar-preference" className="h-0 w-0 text-transparent">preference</label>
           <input
+            id='navbar-preference'
             name='food'
             type='text'
             placeholder='How Hungry You Wanna Be?'
@@ -51,7 +53,9 @@ const Navbar = ({username, setUser, fetchedData, setFetchedData}) => {
               setSendPreference({ ...sendPreference, term: e.target.value })
             }
           />
+          <label htmlFor="navbar-location" className="h-0 w-0 text-transparent">location</label>
           <input
+            id='navbar-location'
             name='location'
             type='text'
             placeholder='Enter Location'

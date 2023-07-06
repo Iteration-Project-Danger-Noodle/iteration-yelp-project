@@ -32,25 +32,29 @@ function Login({setUser}) {
     <div className="fixed flex justify-center items-center top-0 h-screen w-screen bg-opacity-50 bg-slate-950" >
       <div className="flex justify-center items-center bg-black bg-opacity-60 border border-solid border-white rounded-xl w-auto h-auto p-8">
         <form onSubmit={handleSubmit} className="flex flex-col justify-between items-center h-60 rounded-full">
-        <p className="w-30 text-right font-black text-4xl text-white">ME WANT FOOD</p>
+          <p className="w-30 text-right font-black text-4xl text-white">ME WANT FOOD</p>
+          <label htmlFor="login-username" className="h-0 w-0 text-transparent">username</label>
           <input
             ref={username}
+            id="login-username"
             onChange={(e) => username.current = e.target.value}
             className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
             name="username"
             type="text"
             placeholder="Username"
           />
+          <label htmlFor="login-password" className="h-0 w-0 text-transparent">password</label>
           <input
             ref={password}
+            id="login-password"
             onChange={(e) => password.current = e.target.value}
             className="w-60 h-8 p-4 block mb-4 rounded-3xl bg-white border border-solid border-gray-200"
             name="password"
             type="password"
             placeholder="Password"
           />
-          <button className="h-8 w-24 text-white bg-indigo-900 self-center justify-center rounded cursor-pointer">Login</button>
-          <button className="cursor-pointer text-white" type="button" onClick={() => navigate(-1)}>Close</button>
+          <button className="h-8 w-24 text-white bg-orange-600 self-center justify-center rounded cursor-pointer">Login</button>
+          <button className="cursor-pointer text-white my-2" type="button" onClick={() => navigate(-1)}>Close</button>
         </form>
       </div>
     </div>
