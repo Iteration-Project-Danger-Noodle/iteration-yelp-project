@@ -1,10 +1,9 @@
 import React from 'react';
 
 const Card = ({ picUrl, name, location, closes, price }) => {
-  console.log(closes)
 
   return (
-    <div className='w-80 h-80 shadow-md' >
+    <div data-testid="card-element" className='w-80 h-80 shadow-md' >
       <div>
         <div className='w-80 h-80 mb-2 flex justify-center absolute'>
           <img

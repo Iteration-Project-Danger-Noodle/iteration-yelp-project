@@ -13,7 +13,7 @@ function Dashboard({ username, setUser }) {
   }, []);
 
   return (
-    <div className='flex'>
+    <div data-testid="dash-element" className='flex'>
       <Navbar
         username={username}
         setUser={setUser}
